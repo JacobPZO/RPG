@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviourPun
     public Transform[] spawnPoints;
     public float respawnTime;
     private int playersInGame;
+    public PlayerController[] players;
     // instance
     public static GameManager instance;
     void Awake ()
@@ -22,12 +23,14 @@ public class GameManager : MonoBehaviourPun
     {
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabPath, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
         // initialize the player
+        playerObj.GetComponent<PhotonView>().RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         photonView.RPC("ImInGame", RpcTarget.AllBuffered);
+        players = new PlayerController[PhotonNetwork.PlayerList.Length];
     }
 
     // Update is called once per frame

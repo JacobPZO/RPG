@@ -97,8 +97,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             // set the button OnClick event
             Button buttonComp = button.GetComponent<Button>();
             string roomName = roomList[x].Name;
-            buttonComp.OnClick.RemoveAllListeners();
-            buttonComp.OnClick.AddListener(() => { OnJoinRoomButton(roomName); });
+            buttonComp.onClick.RemoveAllListeners();
+            buttonComp.onClick.AddListener(() => { OnJoinRoomButton(roomName); });
         }
     }
 
