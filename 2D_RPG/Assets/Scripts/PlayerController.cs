@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviourPun
     public Animator weaponAnim;
     // local player
     public static PlayerController me;
+    public HeaderInfo headerInfo;
 
     void Move()
     {
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviourPun
     {
         curHp -= damage;
         // update the health bar
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
         if (curHp <= 0)
             Die();
         else
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviourPun
     {
         curHp = Mathf.Clamp(curHp + amountToHeal, 0, maxHp);
         // update the health bar
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
     }
     
     [PunRPC]
@@ -112,11 +115,14 @@ public class PlayerController : MonoBehaviourPun
         id = player.ActorNumber;
         photonPlayer = player;
         GameManager.instance.players[id - 1] = this;
+
         // initialize the health bar
+        headerInfo.Initialize(player.NickName, maxHp);
+
         if (player.IsLocal)
             me = this;
         else
-            rig.isKinematic = true;
+            rig.isKinematic = true; // turn off physics on other players so we don't process their collisions
     }
 
 
