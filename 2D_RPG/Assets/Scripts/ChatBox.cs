@@ -44,6 +44,12 @@ public class ChatBox : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (EventSystem.current.currentSelectedGameObject == chatInput.gameObject)
+                OnChatInputSend();
+            else
+                EventSystem.current.SetSelectedGameObject(chatInput.gameObject);
+        }
     }
 }
