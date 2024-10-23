@@ -7,9 +7,9 @@ using Photon.Pun;
 
 
 
-public class HeaderInfo : MonoBehaviour
+public class HeaderInfo : MonoBehaviourPun
 {
-    public TextMeshProUGUI;
+    public TextMeshProUGUI nameText;
     public Image bar;
     private float maxValue;
 

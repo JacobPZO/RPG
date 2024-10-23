@@ -177,6 +177,7 @@ MonoBehaviour:
   rig: {fileID: 4420269962938123976}
   sr: {fileID: 7494539930307884021}
   weaponAnim: {fileID: 5871702251968299409}
+  headerInfo: {fileID: 2437589404267095175}
 --- !u!114 &5815355576844594245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +484,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b77699598d8d37146916b6bbe46beaa2, type: 3}
+--- !u!114 &2437589404267095175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3679747764913482021, guid: b77699598d8d37146916b6bbe46beaa2, type: 3}
+  m_PrefabInstance: {fileID: 1352515564298046882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ae2d527b3c1294abd66134c03049dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5102595088006495882 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6058773680461951784, guid: b77699598d8d37146916b6bbe46beaa2, type: 3}

@@ -41,6 +41,8 @@ MonoBehaviour:
   - TakeDamage
   - Heal
   - GiveGold
+  - UpdateHealthBar
+  - Log
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
