@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviourPun
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
         {
             // get the enemy and damage them
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
         }
         // play attack animation
         weaponAnim.SetTrigger("Attack");
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviourPun
     {
         gold += goldToGive;
         // update the ui
+        GameUI.instance.UpdateGoldText(gold);
     }
 
     IEnumerator Spawn(Vector3 spawnPos, float timeToSpawn)
@@ -107,6 +110,7 @@ public class PlayerController : MonoBehaviourPun
         curHp = maxHp;
         rig.isKinematic = false;
         // update the health bar
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
     }
 
     [PunRPC]
