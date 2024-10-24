@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: -703850727
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -681804998, guid: 99c916f932a29c745aa8fe20a77a2e02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc9c594cc4d98dd408abb6ece087da07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,8 +150,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.5}
-  m_Size: {x: 0.8, y: 0.8}
+  m_Offset: {x: 0.02492857, y: -0.046931744}
+  m_Size: {x: 0.7760458, y: 0.99561787}
   m_Direction: 0
 --- !u!114 &8832480800888911905
 MonoBehaviour:
@@ -395,6 +395,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7350131497846048440}
     m_Modifications:
+    - target: {fileID: 1396574767515480813, guid: b77699598d8d37146916b6bbe46beaa2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6058773680461951784, guid: b77699598d8d37146916b6bbe46beaa2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
