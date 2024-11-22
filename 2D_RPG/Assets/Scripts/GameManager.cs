@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviourPun
         instance = this;
     }
 
+    [PunRPC]
+    void ImInGame()
+    {
+        playersInGame++;
+        if (playersInGame == PhotonNetwork.PlayerList.Length)
+            SpawnPlayer();
+    }
+
     void SpawnPlayer ()
     {
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabPath, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
@@ -29,8 +37,8 @@ public class GameManager : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        photonView.RPC("ImInGame", RpcTarget.AllBuffered);
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
+        photonView.RPC("ImInGame", RpcTarget.AllBuffered);
     }
 
     // Update is called once per frame

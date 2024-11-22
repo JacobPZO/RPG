@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviourPun
             // calculate the distance
             float dist = Vector3.Distance(transform.position, targetPlayer.transform.position);
             // if we're able to attack, do so
-            if(dist < attackRange && Time.time - lastAttackTime >= attackRange)
+            if(dist < attackRange && Time.time - lastAttackTime >= attackRate)
                 Attack();
             // otherwise, do we move after the player?
             else if(dist > attackRange)
@@ -100,13 +100,13 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     void FlashDamage ()
     {
-        StartCoroutine(DamageFlash());
+        /*StartCoroutine(DamageFlash());
         IEnumerator DamageFlash ()
         {
             sr.color = Color.red;
             yield return new WaitForSeconds(0.05f);
             sr.color = Color.white;
-        }
+        }*/
     }
 
     void Die ()
@@ -120,6 +120,7 @@ public class Enemy : MonoBehaviourPun
     // attacks the targeted player
     void Attack ()
     {
+        Debug.Log("damaged player");
         lastAttackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
     }
